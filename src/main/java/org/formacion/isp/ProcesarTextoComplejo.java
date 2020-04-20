@@ -1,10 +1,14 @@
 package org.formacion.isp;
 
-public class ProcesarTextoComplejo {
+public class ProcesarTextoComplejo extends ProcesarTextoBasico implements Compleja{
 
-    public void nueva (String palabra);
-
-    public String texto ();
-
-    public boolean correcto (Idioma idioma);
+    @Override
+    public boolean correcto (Idioma idioma) {
+        for (String palabra: texto) {
+            if (! idioma.diccionario.contains(palabra.toLowerCase())) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
