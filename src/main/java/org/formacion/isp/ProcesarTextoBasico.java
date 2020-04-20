@@ -1,11 +1,17 @@
 package org.formacion.isp;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProcesarTextoBasico {
+public class ProcesarTextoBasico implements Basico {
 
-    public void nueva (String palabra);
+    List<String> texto = new ArrayList<String>();
 
-    public String texto ();
+    @Override
+    public void nueva (String palabra){ texto.add(palabra); }
+
+    @Override
+    public String texto () {return texto.stream().collect(Collectors.joining(" ")); }
 
 }
